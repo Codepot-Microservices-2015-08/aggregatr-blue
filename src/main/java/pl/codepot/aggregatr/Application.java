@@ -1,4 +1,4 @@
-package pl.devoxx.aggregatr;
+package pl.codepot.aggregatr;
 
 import com.ofg.infrastructure.environment.EnvironmentSetupVerifier;
 import org.springframework.boot.SpringApplication;

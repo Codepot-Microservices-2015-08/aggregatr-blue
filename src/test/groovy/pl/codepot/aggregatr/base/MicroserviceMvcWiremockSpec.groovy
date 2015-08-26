@@ -1,11 +1,11 @@
-package pl.devoxx.aggregatr.base
+package pl.codepot.aggregatr.base
 
 import com.ofg.infrastructure.base.MvcWiremockIntegrationSpec
 import com.ofg.infrastructure.web.correlationid.CorrelationIdFilter
 import org.springframework.boot.test.SpringApplicationContextLoader
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.setup.ConfigurableMockMvcBuilder
-import pl.devoxx.aggregatr.Application
+import pl.codepot.aggregatr.Application
 
 @ContextConfiguration(classes = [Application], loader = SpringApplicationContextLoader)
 class MicroserviceMvcWiremockSpec extends MvcWiremockIntegrationSpec {

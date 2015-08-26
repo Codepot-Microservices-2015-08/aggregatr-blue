@@ -3,17 +3,17 @@ io.codearte.accurest.dsl.GroovyDsl.make {
         method 'POST'
         url '/ingredients'
         headers {
-            header 'Content-Type': 'application/vnd.pl.devoxx.aggregatr.v1+json'
+            header 'Content-Type': 'application/vnd.pl.codepot.aggregatr.v1+json'
         }
         body('''
-            { "items" : ["HOP"] }
+            { "items" : ["MALT"] }
         ''')
     }
     response {
         status 200
         body(
             ingredients: [
-                    [type: 'HOP', quantity: 200]
+                    [type: 'MALT', quantity: 200]
             ]
         )
     }

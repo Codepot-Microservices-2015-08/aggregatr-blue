@@ -1,8 +1,7 @@
 {
-    "pl": {
-        "this": "pl/devoxx/aggregatr",
+    "red": {
+        "this": "pl/codepot/aggregatr",
         "dependencies" : {
-            "dojrzewatr": "pl/devoxx/dojrzewatr"
         }
     }
 }
