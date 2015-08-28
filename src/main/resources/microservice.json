@@ -1,6 +1,6 @@
 {
     "blue": {
-        "this": "foo/bar",
+        "this": "pl/codepot/aggregator-blue",
         "dependencies" : {
         }
     }
