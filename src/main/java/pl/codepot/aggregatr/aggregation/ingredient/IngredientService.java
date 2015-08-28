@@ -4,6 +4,7 @@ import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.ofg.infrastructure.web.resttemplate.fluent.ServiceRestClient;
+import org.apache.commons.math.ode.IntegratorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.codepot.aggregatr.aggregation.model.Version;
@@ -30,7 +31,15 @@ public class IngredientService {
     @Autowired
     public IngredientService(ServiceRestClient serviceRestClient) {
         this.serviceRestClient = serviceRestClient;
+        initStorage();
+    }
+
+    private void initStorage() {
         storage = new HashMap<>();
+        storage.put(IngredientType.HOP, 0);
+        storage.put(IngredientType.MALT, 0);
+        storage.put(IngredientType.WATER, 0);
+        storage.put(IngredientType.YIEST, 0);
     }
 
     public void makeOrder(IngredientType ingredientType) {
