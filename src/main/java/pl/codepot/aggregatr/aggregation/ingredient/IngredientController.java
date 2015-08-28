@@ -1,13 +1,12 @@
 package pl.codepot.aggregatr.aggregation.ingredient;
 
-import com.google.common.collect.Lists;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author dchojnacki
@@ -19,11 +18,7 @@ public class IngredientController {
 
     @RequestMapping(method = RequestMethod.POST)
     public Ingredients getIngredients(@RequestBody Order order) {
-        List<Ingredient> result = Lists.newArrayList();
-        for(IngredientType type : order.getItems()){
-            result.add(new Ingredient(type.name(), 200));
-        }
-        return new Ingredients(result);
+        return new Ingredients(order.getItems().stream().map(item->new Ingredient(item.name(), 200)).collect(Collectors.toList()));
     }
 
 }
