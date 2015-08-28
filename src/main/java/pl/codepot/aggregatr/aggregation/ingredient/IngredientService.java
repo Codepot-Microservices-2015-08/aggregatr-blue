@@ -4,6 +4,7 @@ import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.ofg.infrastructure.web.resttemplate.fluent.ServiceRestClient;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.math.ode.IntegratorException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,7 +62,11 @@ public class IngredientService {
     }
 
     public void orderIngredient(IngredientType ingredientType) {
-        storage.put(ingredientType, storage.get(ingredientType) + generateRandomAmountOfIngredientType());
+        Integer ingredientsCount = storage.get(ingredientType);
+        if (ingredientsCount == null){
+            ingredientsCount = 0;
+        }
+        storage.put(ingredientType, ingredientsCount + generateRandomAmountOfIngredientType());
     }
 
     public void dropMaxIngredients() {
